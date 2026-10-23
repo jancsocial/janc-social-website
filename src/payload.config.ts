@@ -33,18 +33,17 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  // // use it on production for using supabase
-  // db: postgresAdapter({
-  //   pool: {
-  //     connectionString: process.env.DATABASE_URL || '',
-  //   },
-  // }),
-  db: sqliteAdapter({
-    client: {
-      //url: process.env.DATABASE_URL || '',
-      url: '',
+  // use it on production for using supabase
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URL || '',
     },
   }),
+  // db: sqliteAdapter({
+  //   client: {
+  //     url: process.env.DATABASE_URL || '',
+  //   },
+  // }),
   sharp,
   plugins: [],
 })
