@@ -1,5 +1,6 @@
 import { BsBoxArrowInDownLeft } from "react-icons/bs";
 
+
 export default function Questionary(props:any) {
   let { reduceAction, triggerOpenCalendly } = props
 
@@ -34,9 +35,9 @@ export default function Questionary(props:any) {
       <div className="grid grid-cols-2 gap-4 auto-rows-max">
         {
           dataTwoCol.map((field) => (
-            <fieldset id={field.id} class="fieldset">
-              <legend class="fieldset-legend">{field.legend}</legend>
-              <input type="text" class="input" placeholder="" />
+            <fieldset key={field.id} className="fieldset">
+              <legend className="fieldset-legend">{field.legend}</legend>
+              <input type="text" className="input" placeholder="" />
             </fieldset>
           ))
         }
@@ -48,7 +49,7 @@ export default function Questionary(props:any) {
             <fieldset key={field.id} className="fieldset w-full">
               <legend className="fieldset-legend">{field.legend}</legend>
               { field.id === 'mainfocus' ?
-                  <textarea class="textarea h-24 w-full" placeholder=""></textarea> :
+                  <textarea className="textarea h-24 w-full" placeholder=""></textarea> :
                   <input type='text' className="input w-full" placeholder="" />
               }
             </fieldset>

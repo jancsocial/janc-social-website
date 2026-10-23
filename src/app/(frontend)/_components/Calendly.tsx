@@ -2,6 +2,9 @@ import { BsBoxArrowInDownLeft } from "react-icons/bs";
 import Script from "next/script";
 
 export default function Calendly() {
+  function handleReduceBtn() { 
+    console.log("TODO")
+  }
   return (
     <>
       <div className="flex justify-end">
@@ -20,7 +23,6 @@ export default function Calendly() {
         strategy="afterInteractive"
       />
       {/* Calendly inline widget end */}
-      <p>Calendly</p>
     </>
   )
 }

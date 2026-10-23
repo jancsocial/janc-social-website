@@ -9,7 +9,7 @@ import TestimonialsCard from "./_components/TestimonialsCard";
 import Questionary from "./_components/Questionary";
 import Calendly from "./_components/Calendly";
 
-export default function HomepageClient({ pageData }) {
+export default function HomepageClient() {
   let [btnGridActive, setBtnGridActive] = useState(true)
   let [textCardActive, setTextCardActive] = useState(false)
   let [testimonialsCardActive, setTestimonialsCardActive] = useState(false)
@@ -103,6 +103,7 @@ Few words about my mission in terms of help clients and in general - about my bo
     setTextCardActive(false)
     setTestimonialsCardActive(false)
 
+    setCalendlyActive(false)
     setQuestionaryActive(true)
     setCallBtnActive(false)
   }

@@ -31,7 +31,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <HomepageClient pageData={page} />
+      <HomepageClient />
     </>
   )
 
