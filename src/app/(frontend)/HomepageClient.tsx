@@ -117,7 +117,7 @@ Few words about my mission in terms of help clients and in general - about my bo
   return (
     <>
       <div className="bg-primary">
-        <div className="h-dvh flex flex-col justify-around items-center px-6 py-4 gap-4">
+        <div className="h-[calc(var(--vh,1vh)*100)] flex flex-col justify-around items-center px-6 py-4 gap-4">
           <div className="flex flex-row justify-start md:justify-center gap-4 items-center">
             <img src="/profile-picture.png"
               className="h-[110px] w-auto"
