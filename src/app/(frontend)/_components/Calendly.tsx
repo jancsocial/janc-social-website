@@ -5,9 +5,10 @@ export default function Calendly() {
   function handleReduceBtn() { 
     console.log("TODO")
   }
+
   return (
     <>
-      <div className="flex justify-end">
+      <div className="flex pr-24 justify-end ">
         <button className="flex gap-4 cursor-pointer active:scale-95" onClick={() => handleReduceBtn()}>
         <p>Back to the questionnaire</p>
         <div>
@@ -16,8 +17,8 @@ export default function Calendly() {
         </button>
       </div>
       {/* Calendly inline widget begin */}
-      <div className="calendly-inline-widget" data-url="https://calendly.com/antony-lao-web/30min" 
-        style={{minWidth: "320px", height:"700px"}}></div>
+      <div className="calendly-inline-widget h-full pb-4" data-url="https://calendly.com/antony-lao-web/30min" 
+        style={{minWidth: "320px"}}></div>
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="afterInteractive"
