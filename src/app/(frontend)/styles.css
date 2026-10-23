@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: light-theme --default;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+@plugin "daisyui/theme" {
+  name:"light-theme";
+  default: true;
+
+  --color-primary: #FFFAC8;
+  --color-neutral: #FCF9DC;
+  --color-secondary: #D1CDA4;
+  --color-accent: #000;
+  --color-accent-content: #FFFAC8;
+}
+
+
