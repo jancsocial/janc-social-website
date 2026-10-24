@@ -13,20 +13,18 @@ import './styles.css'
 
 export default async function HomePage() {
   const headers = await getHeaders()
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
+  //const payloadConfig = await config
+  //const payload = await getPayload({ config: payloadConfig })
+  //const { user } = await payload.auth({ headers })
 
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
-
-  const result = await payload.find({
-    collection: "pages",
-    where: {
-      slug: { equals: "homepage" }
-    }
-  })
-
-  const page = result.docs[0]
+//  const result = await payload.find({
+//    collection: "pages",
+//    where: {
+//      slug: { equals: "homepage" }
+//    }
+//  })
+//
+//  const page = result.docs[0]
 
 
   return (
