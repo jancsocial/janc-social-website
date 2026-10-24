@@ -148,7 +148,7 @@ Few words about my mission in terms of help clients and in general - about my bo
           {btnGridActive ?
             <>
               {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
-              <p className="my-auto text-2xl font-semibold text-center" >You are here because the people you give the most to are the ones who treat you <span className="">the worst</span></p>
+              <p className="my-auto text-2xl font-semibold text-center" >You are here because the people you give the most to are the ones who treat you <span className="text-[#006D9C]">the worst</span></p>
               <div className="overflow-x-auto w-full min-w-0 flex flex-col items-center"> 
                 <div className="grid grid-cols-[repeat(2,10rem)] gap-4">
                   {buttons.map((button) => (
