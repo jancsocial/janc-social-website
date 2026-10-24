@@ -117,13 +117,15 @@ Few words about my mission in terms of help clients and in general - about my bo
   return (
     <>
       <div className="bg-primary">
-        <div className="h-dvh flex flex-col justify-around items-center px-6 py-4 gap-4">
-          <div className="flex flex-row justify-start md:justify-center gap-4 items-center">
+        <div className="h-[14px] bg-[#DAB886]"></div>
+        <div className="h-dvh flex flex-col justify-around items-center px-6 pb-4 gap-4">
+          <div className="w-dvw flex flex-row justify-start md:justify-center gap-4 items-center 
+          bg-[linear-gradient(to_bottom,#f6dfbb_0_24%,#FAEED4_24%_45%,#c5dfed_43%_100%)]">
             <img src="/profile-picture.png"
               className="h-[110px] w-auto"
               alt="jan-cinis-picture" />
             <div className="flex flex-col gap-1 justify-between">
-              <h1 className="text-xl font-bold underline">Jan Cinis</h1>
+              <h1 className="text-xl font-bold -mt-[2px] ">Jan Cinis</h1>
               <div>
                 <p className="text-sm">Certified Coach, ACC ICF</p>
                 <div className="flex flex-row gap-1 items-center">
