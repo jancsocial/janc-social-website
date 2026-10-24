@@ -8,7 +8,7 @@ export default function Calendly() {
 
   return (
     <>
-      <div className="flex pr-24 justify-end ">
+      <div className="flex justify-end ">
         <button className="flex gap-4 cursor-pointer active:scale-95" onClick={() => handleReduceBtn()}>
         <p>Back to the questionnaire</p>
         <div>
@@ -18,7 +18,7 @@ export default function Calendly() {
       </div>
       {/* Calendly inline widget begin */}
       <div className="calendly-inline-widget h-full pb-4" data-url="https://calendly.com/antony-lao-web/30min" 
-        style={{minWidth: "320px"}}></div>
+        style={{minWidth: "320px", height: "500px"}}></div>
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="afterInteractive"
