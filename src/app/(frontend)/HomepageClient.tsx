@@ -8,6 +8,7 @@ import TextCard from "./_components/TextCard";
 import TestimonialsCard from "./_components/TestimonialsCard";
 import Questionary from "./_components/Questionary";
 import Calendly from "./_components/Calendly";
+import { MdQuestionMark } from "react-icons/md";
 
 export default function HomepageClient() {
   let [btnGridActive, setBtnGridActive] = useState(true)
@@ -39,7 +40,7 @@ export default function HomepageClient() {
       }
     },
     {
-      id: 2, title: "Is it for you", alt: "null", image: "/profile-picture.png", action: {
+      id: 2, title: "Is it for you", alt: "null", image: null, icon:  <MdQuestionMark />,action: {
         type: "text",
         title: "Is it for you",
         text: `Explanation what’s all about - pain points, what’s really achievable and how.`
@@ -54,7 +55,9 @@ Current coaching experience, what do I enjoy and whom I help specifically.
 Few words about my mission in terms of help clients and in general - about my book` }
     },
     {
-      id: 4, title: "What to expect", alt: "null", image: "/profile-picture.png", action: {
+      id: 4, title: "What to expect", alt: "null", image: null, 
+      icon: <span className="inline-block rotate-[90deg] text-3xl leading-none"> :) </span>, 
+        action: {
         type: "text",
         title: "Meet Jan",
         text: `We begin with a complimentary first session to clarify your goals and design your personal roadmap. Step by step, we move toward each milestone with clarity and purpose.  At the end, you receive a tailored summary and practical tools to sustain your progress after achieving your goals.`
@@ -148,7 +151,7 @@ Few words about my mission in terms of help clients and in general - about my bo
           {btnGridActive ?
             <>
               {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
-              <p className="my-auto text-2xl font-semibold text-center" >You are here because the people you give the most to are the ones who treat you <span className="text-[#006D9C]">the worst</span></p>
+              <p className="max-w-80 text-2xl font-semibold text-center" >You are here because the people you give the most to are the ones who treat you <span className="text-[#006D9C]">the worst</span></p>
               <div className="overflow-x-auto w-full min-w-0 flex flex-col items-center"> 
                 <div className="grid grid-cols-[repeat(2,10rem)] gap-4">
                   {buttons.map((button) => (
@@ -171,8 +174,9 @@ Few words about my mission in terms of help clients and in general - about my bo
                               className="-ml-7 h-10 w-auto"
                             />
                           </div>
-                        ) :
+                        ) : button.image ?
                           <img src={button.image} className="h-10 w-auto" alt={button.alt} />
+                          : <div className="h-10 [&>svg]:h-10 [&>svg]:w-auto">{button.icon}</div>
                         }
                       </label>
                     </button>
