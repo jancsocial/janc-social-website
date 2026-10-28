@@ -43,16 +43,20 @@ export default function HomepageClient() {
       id: 2, title: "Is it for you", alt: "null", image: null, icon:  <MdQuestionMark />,action: {
         type: "text",
         title: "Is it for you",
-        text: `Explanation what’s all about - pain points, what’s really achievable and how.`
+        text: `If you keep ending up in the same kind of relationship - if socializing or dating goes nowhere, if you’ve read the books, tried the techniques, maybe sat with a therapist, but then you are still stuck in the same loop and even hate yourself for it - then yes, this is for you.
+
+It starts with a free intro call: no pitch, just whether this fits. Then 1:1 over video, working a plan for what you actually do differently this week.`
       }
     },
     {
       id: 3, title: "Meet Jan", alt: "null", image: "/profile-picture-grayscale.png", action: {
         type: "text",
         title: "Meet Jan",
-        text: `My short bio. Short story who I was in the past, my background. What experience I went thru.
-Current coaching experience, what do I enjoy and whom I help specifically.
-Few words about my mission in terms of help clients and in general - about my book` }
+        text: `Hello. I coach people worldwide on confidence, boundaries and dating - I work with those who struggle in relationships and dating, avoid socializing, and end up burned out and unseen - at work, with friends, and at home. ACC-credentialed through the International Coaching Federation.
+
+Most come to me in a life crisis, or simply unhappy. That’s where the pattern gets loudest - rarely where it starts. I’m also an engineer by education, so I work from both sides: rational enough to map the problem, careful enough to unpack the pain and emotions behind it. From there we build a clear action plan, laid out as a roadmap - awareness, self-integrity, assertive steps - toward a happier life and healthier relationships.
+
+If low confidence or people-pleasing is weighing on your life, book a free intro call. 1:1 online, over video, in English.` }
     },
     {
       id: 4, title: "What to expect", alt: "null", image: null, 
@@ -60,7 +64,11 @@ Few words about my mission in terms of help clients and in general - about my bo
         action: {
         type: "text",
         title: "Meet Jan",
-        text: `We begin with a complimentary first session to clarify your goals and design your personal roadmap. Step by step, we move toward each milestone with clarity and purpose.  At the end, you receive a tailored summary and practical tools to sustain your progress after achieving your goals.`
+        text: `The first call is free and takes about 45-60 minutes. You describe what’s been happening - I ask questions to find where the pattern actually starts rather than where it hurts most. There’s no pitch at the end of it. You’ll leave either with a clear picture of what working together would involve, or with something useful regardless.
+
+If we continue, we work 1:1 over video, based on the agreed frequency. The first few sessions are mostly mapping: what keeps repeating, which situations it shows up in, and what you’ve already tried. After that we build the roadmap - awareness, self-integrity, assertive steps and work through it in order rather than jumping to the hardest thing first.
+
+Between sessions you’ll have something specific to try without pushing yourself - usually a situation you would normally avoid or smooth over. We look at what actually happened, adjust, and go again. Most of the change comes from those repetitions rather than from the conversations themselves 0 the sessions are where we work out what to do next and why the last attempt went the way it did.`
       }
     },
   ]
@@ -151,11 +159,11 @@ Few words about my mission in terms of help clients and in general - about my bo
           {btnGridActive ?
             <>
               {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
-              <p className="max-w-80 text-2xl font-semibold text-center" >You are here because the people you give the most to are the ones who treat you <span className="text-[#006D9C]">the worst</span></p>
-              <div className="overflow-x-auto w-full min-w-0 flex flex-col items-center"> 
+              <p className="max-w-80  my-auto text-2xl font-semibold text-center" >You are here because the people you give the most to are the ones who treat you <span className="text-[#006D9C]">the worst</span></p>
+              <div className="overflow-x-auto w-full min-w-0 flex flex-col items-center pb-4"> 
                 <div className="grid grid-cols-[repeat(2,10rem)] gap-4">
                   {buttons.map((button) => (
-                    <button key={button.id} className="btn h-40 w-40 bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl"
+                    <button key={button.id} className="btn h-40 w-40 bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]"
                       onClick={() => activate_button(button.action)} >
                       <label htmlFor={`button-${button.id}`} className="p-4 justify-between flex flex-col gap-2 items-center cursor-pointer">
                         <h2 className="card-title text-xl font-bold h-12 text-center ">{button.title}</h2>
@@ -195,7 +203,7 @@ Few words about my mission in terms of help clients and in general - about my bo
             : null
           }
           {callBtnActive ?
-            <button className="btn btn-accent" onClick={() => openQuestionary()} > BOOK MY FREE DISCOVERY CALL</button>
+            <button className="btn btn-accent rounded-xl mb-2 shadow-[7px_7px_0_rgba(0,0,0,0.3)]" onClick={() => openQuestionary()} > BOOK MY FREE DISCOVERY CALL</button>
             : null
           }
           {questionaryActive ? 

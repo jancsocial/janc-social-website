@@ -46,7 +46,7 @@ export default function TextCard(props: any) {
             </button>
           </div>
           <div ref={containerRef} className="flex-1 text-xl overflow-y-auto">
-            <p >{args.text}  </p>
+            <p className="whitespace-pre-line" >{args.text}  </p>
           </div>
           {hasScroll && (
             <button className="flex-none w-[45px] h-[45px]" onClick={() => {

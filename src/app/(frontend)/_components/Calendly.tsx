@@ -13,12 +13,12 @@ export default function Calendly() {
         <p>Back to the questionnaire</p>
         <div>
           <BsBoxArrowInDownLeft size={20} className="[stroke-width:1.5] " />
-          </div>
+        </div>
         </button>
       </div>
       {/* Calendly inline widget begin */}
-      <div className="calendly-inline-widget h-full pb-4" data-url="https://calendly.com/antony-lao-web/30min" 
-        style={{minWidth: "320px", height: "500px"}}></div>
+      <div className="calendly-inline-widget h-full pb-4" data-url="https://calendly.com/janc-social-team/30min"
+         style={{minWidth: "320px", height: "500px"}} ></div>
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="afterInteractive"
