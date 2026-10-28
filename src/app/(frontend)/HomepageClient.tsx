@@ -9,6 +9,8 @@ import TestimonialsCard from "./_components/TestimonialsCard";
 import Questionary from "./_components/Questionary";
 import Calendly from "./_components/Calendly";
 import { MdQuestionMark } from "react-icons/md";
+import { FaArrowCircleRight } from "react-icons/fa";
+import { FaCircleArrowRight } from "react-icons/fa6";
 
 export default function HomepageClient() {
   let [btnGridActive, setBtnGridActive] = useState(true)
@@ -106,6 +108,12 @@ Between sessions you’ll have something specific to try without pushing yoursel
     setCallBtnActive(true)
   }
 
+  function reduceCalendly() {
+    console.log("reduceCalendly")
+    setBtnGridActive(true)
+    setCalendlyActive(false)
+    setCallBtnActive(true)
+  }
 
 
   function openQuestionary() {
@@ -203,7 +211,7 @@ Between sessions you’ll have something specific to try without pushing yoursel
             : null
           }
           {callBtnActive ?
-            <button className="btn btn-accent rounded-xl mb-2 shadow-[7px_7px_0_rgba(0,0,0,0.3)]" onClick={() => openQuestionary()} > BOOK MY FREE DISCOVERY CALL</button>
+            <button className="btn btn-accent rounded-xl mb-2 shadow-[7px_7px_0_rgba(0,0,0,0.3)]" onClick={() => openCalendly()} > BOOK MY FREE DISCOVERY CALL <FaCircleArrowRight size={20} color="#0078AD" className="bg-white rounded-full" /></button>
             : null
           }
           {questionaryActive ? 
@@ -214,7 +222,7 @@ Between sessions you’ll have something specific to try without pushing yoursel
           }
           {calendlyActive ?
             <div className="bg-[#4F2ABD8A] h-full w-[calc(100%+3rem)] -mx-6 -mb-4 border-t-2 px-4 pt-[30px]">
-              <Calendly />
+              <Calendly reduceAction={reduceCalendly} />
             </div >
             : null
           }

@@ -1,16 +1,17 @@
 import { BsBoxArrowInDownLeft } from "react-icons/bs";
 import Script from "next/script";
 
-export default function Calendly() {
+export default function Calendly(props) {
+  const {reduceAction} = props
   function handleReduceBtn() { 
-    console.log("TODO")
+    reduceAction()
   }
 
   return (
     <>
       <div className="flex justify-end ">
         <button className="flex gap-4 cursor-pointer active:scale-95" onClick={() => handleReduceBtn()}>
-        <p>Back to the questionnaire</p>
+        <p>Back to the Home page</p>
         <div>
           <BsBoxArrowInDownLeft size={20} className="[stroke-width:1.5] " />
         </div>
