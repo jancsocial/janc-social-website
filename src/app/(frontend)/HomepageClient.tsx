@@ -59,6 +59,7 @@ It starts with a free intro call: no pitch, just whether this fits. Then 1:1 ove
 Most come to me in a life crisis, or simply unhappy. That’s where the pattern gets loudest - rarely where it starts. I’m also an engineer by education, so I work from both sides: rational enough to map the problem, careful enough to unpack the pain and emotions behind it. From there we build a clear action plan, laid out as a roadmap - awareness, self-integrity, assertive steps - toward a happier life and healthier relationships.
 
 If low confidence or people-pleasing is weighing on your life, book a free intro call. 1:1 online, over video, in English.` }
+        
     },
     {
       id: 4, title: "What to expect", alt: "null", image: null, 
@@ -129,36 +130,44 @@ Between sessions you’ll have something specific to try without pushing yoursel
 
   // only called inside the Questionary, so no need to make all active elements false
   function openCalendly() {
+    //make all useState that control the Active element be false
+    setBtnGridActive(false)
+    setTextCardActive(false)
+    setTestimonialsCardActive(false)
     setQuestionaryActive(false)
+
     setCalendlyActive(true)
+    setCallBtnActive(false)
   }
 
   return (
     <>
       <div className="bg-primary">
-        <div className="h-[14px] bg-[#DAB886]"></div>
-        <div className="h-dvh flex flex-col justify-around items-center px-6 pb-4 gap-4">
-          <div className="w-dvw flex flex-row justify-center gap-4 items-center 
-          bg-[linear-gradient(to_bottom,#f6dfbb_0_24%,#FAEED4_24%_45%,#c5dfed_43%_100%)]">
-            <img src="/profile-picture.png"
-              className="h-[110px] w-auto"
-              alt="jan-cinis-picture" />
-            <div className="flex flex-col gap-1 justify-between">
-              <h1 className="text-xl font-bold -mt-[2px] ">Jan Cinis</h1>
-              <div>
-                <p className="text-sm">Certified Coach, ACC ICF</p>
-                <div className="flex flex-row gap-1 items-center">
-                  <p className="text-sm">5 371 followers</p>
-                  <div className="flex flex-row">
-                    <IoLogoLinkedin className="h-[16px] w-auto" />
-                    <CiInstagram className="h-[16px] w-auto" />
-                    <AiOutlineTikTok className="h-[16px] w-auto" />
+        <div className="h-dvh flex flex-col justify-around items-center pb-4 px-6 gap-4">
+          <div>
+            <div className="h-[14px] bg-[#DAB886]"></div>
+            <div className="w-dvw flex flex-row justify-center gap-4 items-center 
+            bg-[linear-gradient(to_bottom,#f6dfbb_0_24%,#FAEED4_24%_45%,#c5dfed_43%_100%)]">
+              <img src="/profile-picture.png"
+                className="h-[110px] w-auto"
+                alt="jan-cinis-picture" />
+              <div className="flex flex-col gap-1 justify-between">
+                <h1 className="text-xl font-bold -mt-[2px] ">Jan Cinis</h1>
+                <div>
+                  <p className="text-sm">Certified Coach, ACC ICF</p>
+                  <div className="flex flex-row gap-1 items-center">
+                    <p className="text-sm">5 371 followers</p>
+                    <div className="flex flex-row">
+                      <IoLogoLinkedin className="h-[16px] w-auto" />
+                      <CiInstagram className="h-[16px] w-auto" />
+                      <AiOutlineTikTok className="h-[16px] w-auto" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                <p className="text-xs font-bold">Boundaries, Confidence,</p>
-                <p className="text-xs font-bold">People-pleasing Coaching</p>
+                <div>
+                  <p className="text-xs font-bold">Boundaries, Confidence,</p>
+                  <p className="text-xs font-bold">People-pleasing Coaching</p>
+                </div>
               </div>
             </div>
           </div>
@@ -203,7 +212,8 @@ Between sessions you’ll have something specific to try without pushing yoursel
             : null
           }
           {/*TEXT CARD*/}
-          {textCardActive ? <TextCard args={actionArgs} reduceAction={reduceTextCard} />
+
+          {textCardActive ? <TextCard args={actionArgs} reduceAction={reduceTextCard}  />
             : null
           }
           {/*TESTIMONIALS CARD*/}
@@ -221,7 +231,7 @@ Between sessions you’ll have something specific to try without pushing yoursel
             : null
           }
           {calendlyActive ?
-            <div className="bg-[#4F2ABD8A] h-full w-[calc(100%+3rem)] -mx-6 -mb-4 border-t-2 px-4 pt-[30px]">
+            <div className="bg-[#0C1B33] h-full w-[calc(100%+3rem)] -mx-6 -mb-4 border-t-2 px-4 pt-[30px]">
               <Calendly reduceAction={reduceCalendly} />
             </div >
             : null

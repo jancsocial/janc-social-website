@@ -7,7 +7,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 export default function TextCard(props: any) {
   console.log(props)
-  let { args, reduceAction } = props
+  let { args, reduceAction} = props
 
   const containerRef = useRef(null);
   const [hasScroll, setHasScroll] = useState(false);

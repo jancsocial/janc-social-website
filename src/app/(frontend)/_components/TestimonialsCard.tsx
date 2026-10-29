@@ -62,8 +62,8 @@ export default function TestimonialsCard(props: any) {
               <img src={args.testimonials[testimonialIdx]["picture"]}
                 className="flex-none h-[110px] w-auto"
                 alt={`client-${testimonialIdx}-picture`} />
-              <p className="text-sm font-bold">{args.testimonials[testimonialIdx]["name"]}</p>
-              <p className="text-sm pb-2">{args.testimonials[testimonialIdx]["occupation"]}</p>
+              <p className="text-sm font-bold flex-none">{args.testimonials[testimonialIdx]["name"]}</p>
+              <p className="text-sm pb-2 flex-none">{args.testimonials[testimonialIdx]["occupation"]}</p>
               <div className="flex-1">
                 <p className="text-sm px-10">{args.testimonials[testimonialIdx]["text"]}</p>
               </div>
@@ -90,9 +90,9 @@ export default function TestimonialsCard(props: any) {
             </button>
           )}
 
-          <div className="flex flex-row justify-evenly">
-            <div className="btn">Button 1</div>
-            <div className="btn">Button 2</div>
+          <div className="flex flex-row justify-evenly w-full">
+            <div className="btn bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]">Button 1</div>
+            <div className="btn bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]">Button 2</div>
           </div>
         </div>
       </div >
