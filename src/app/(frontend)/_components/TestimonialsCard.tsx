@@ -40,7 +40,7 @@ export default function TestimonialsCard(props: any) {
 
   return (
     <>
-      <div className="overflow-hidden min-h-0 flex-1 card border-2 bg-neutral">
+      <div className="overflow-hidden min-h-0 flex-1 card border-2 bg-neutral w-full">
         <div className="overflow-hidden min-h-0 card-body flex flex-col items-center justify-between">
           <div className=" grid w-full grid-cols-[1fr_auto_1fr] items-center " >
             <span />
@@ -50,7 +50,9 @@ export default function TestimonialsCard(props: any) {
             </button>
           </div>
           <div className="overflow-hidden card-body w-full">
-            <button className="absolute left-6 top-1/2 z-10 -translate-y-1/2 cursor-pointer active:scale-95">
+            <button className="absolute left-6 top-1/2 z-10 -translate-y-1/2 cursor-pointer active:scale-95"
+              onClick={() => setTestimonialIdx((testimonialIdx - 1 + args.testimonials.length)  % args.testimonials.length) }
+            >
               <MdKeyboardArrowLeft className=" block w-[45px] h-[45px]" />
             </button>
             {/*
@@ -69,7 +71,9 @@ export default function TestimonialsCard(props: any) {
               </div>
 
             </div>
-            <button className="absolute right-6 top-1/2 z-10 -translate-y-1/2 cursor-pointer active:scale-95">
+            <button className="absolute right-6 top-1/2 z-10 -translate-y-1/2 cursor-pointer active:scale-95"
+              onClick={() => setTestimonialIdx((testimonialIdx + 1)  % args.testimonials.length) }
+            >
 
               <MdKeyboardArrowRight className=" block w-[45px] h-[45px]" />
             </button>
