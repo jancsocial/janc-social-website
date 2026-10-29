@@ -3,7 +3,7 @@ import Script from "next/script";
 
 import { InlineWidget } from "react-calendly";
 
-export default function Calendly(props) {
+export default function Calendly(props: any) {
   const {reduceAction} = props
   function handleReduceBtn() { 
     reduceAction()
