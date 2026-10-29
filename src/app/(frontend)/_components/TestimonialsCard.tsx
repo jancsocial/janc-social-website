@@ -40,7 +40,7 @@ export default function TestimonialsCard(props: any) {
 
   return (
     <>
-      <div className="overflow-hidden min-h-0 flex-1 card border-2 bg-secondary">
+      <div className="overflow-hidden min-h-0 flex-1 card border-2 bg-neutral">
         <div className="overflow-hidden min-h-0 card-body flex flex-col items-center justify-between">
           <div className=" grid w-full grid-cols-[1fr_auto_1fr] items-center " >
             <span />
@@ -89,11 +89,12 @@ export default function TestimonialsCard(props: any) {
               <MdKeyboardArrowDown className=" block w-[45px] h-[45px]" />
             </button>
           )}
-
+          {/*
           <div className="flex flex-row justify-evenly w-full">
-            <div className="btn bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]">Button 1</div>
-            <div className="btn bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]">Button 2</div>
+            <div className="btn bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)] ">{args.button1Text}</div>
+            <div className="btn bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]">{args.button2Text}</div>
           </div>
+          */}
         </div>
       </div >
     </>

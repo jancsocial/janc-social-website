@@ -36,7 +36,7 @@ export default function TextCard(props: any) {
 
   return (
     <>
-      <div className="overflow-hidden flex-1 card border-2 bg-secondary">
+      <div className="overflow-hidden flex-1 card border-2 bg-neutral">
         <div className="overflow-hidden card-body flex flex-col items-center justify-between">
           <div className=" grid w-full grid-cols-[1fr_auto_1fr] items-center " >
             <span />
@@ -57,10 +57,12 @@ export default function TextCard(props: any) {
             </button>
           )}
 
+          {/*
           <div className="flex flex-row justify-evenly">
             <div className="btn">Button 1</div>
             <div className="btn">Button 2</div>
           </div>
+          */}
         </div>
       </div >
     </>

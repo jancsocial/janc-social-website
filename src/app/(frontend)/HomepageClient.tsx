@@ -37,8 +37,11 @@ export default function HomepageClient() {
           occupation: "Solopreneur",
           picture: "/client_02_tone.png",
           text: `I truly enjoyed being coached by Jan. At every stage, I knew exactly where I stood and what to improve to move forward. As a result, I gained confidence and earned greater respect for myself and my boundaries.`
-        }
-        ]
+        }],
+        //button1Text: buttons[1].title,
+        //button1Action: activate_button(buttons[1].action),
+        //button2Text: buttons[2].title,
+        //button2Action: activate_button(buttons[2].action) 
       }
     },
     {
@@ -143,13 +146,13 @@ Between sessions you’ll have something specific to try without pushing yoursel
   return (
     <>
       <div className="bg-primary">
-        <div className="h-dvh flex flex-col justify-around items-center pb-4 px-6 gap-4">
+        <div className="h-dvh flex flex-col justify-start items-center pb-4 px-6 gap-4">
           <div>
             <div className="h-[14px] bg-[#DAB886]"></div>
             <div className="w-dvw flex flex-row justify-center gap-4 items-center 
             bg-[linear-gradient(to_bottom,#f6dfbb_0_24%,#FAEED4_24%_45%,#c5dfed_43%_100%)]">
-              <img src="/profile-picture.png"
-                className="h-[110px] w-auto"
+              <img src="/profile_picture_2.jpg"
+                className="h-[110px] w-auto mask mask-circle"
                 alt="jan-cinis-picture" />
               <div className="flex flex-col gap-1 justify-between">
                 <h1 className="text-xl font-bold -mt-[2px] ">Jan Cinis</h1>
@@ -176,11 +179,11 @@ Between sessions you’ll have something specific to try without pushing yoursel
           {btnGridActive ?
             <>
               {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
-              <p className="max-w-80  my-auto text-2xl font-semibold text-center" >You are here because the people you give the most to are the ones who treat you <span className="text-[#006D9C]">the worst</span></p>
+              <p className="max-w-80 text-2xl font-semibold text-center" >You are here because the people you give the most to are the ones who treat you <span className="text-[#006D9C]">the worst</span></p>
               <div className="overflow-x-auto w-full min-w-0 flex flex-col items-center pb-4"> 
                 <div className="grid grid-cols-[repeat(2,10rem)] gap-4">
                   {buttons.map((button) => (
-                    <button key={button.id} className="btn h-40 w-40 bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]"
+                    <button key={button.id} className="btn h-40 w-40 border-[1.5px] border-black bg-neutral hover:bg-[#fff] active:bg-[#fff] border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)] active:shadow-none hover:shadow-none active:translate-x-[4px] active:translate-y-[3px]  hover:translate-x-[4px] hover:translate-y-[3px]"
                       onClick={() => activate_button(button.action)} >
                       <label htmlFor={`button-${button.id}`} className="p-4 justify-between flex flex-col gap-2 items-center cursor-pointer">
                         <h2 className="card-title text-xl font-bold h-12 text-center ">{button.title}</h2>
@@ -221,7 +224,7 @@ Between sessions you’ll have something specific to try without pushing yoursel
             : null
           }
           {callBtnActive ?
-            <button className="btn btn-accent rounded-xl mb-2 shadow-[7px_7px_0_rgba(0,0,0,0.3)]" onClick={() => openCalendly()} > BOOK MY FREE DISCOVERY CALL <FaCircleArrowRight size={20} color="#0078AD" className="bg-white rounded-full" /></button>
+            <button className="btn btn-accent rounded-xl mb-2 shadow-[7px_7px_0_rgba(0,0,0,0.3)] active:shadow-none hover:shadow-none active:translate-x-[4px] active:translate-y-[3px]  hover:translate-x-[4px] hover:translate-y-[3px] " onClick={() => openCalendly()} > BOOK MY FREE DISCOVERY CALL <FaCircleArrowRight size={20} color="#0078AD" className="bg-white rounded-full" /></button>
             : null
           }
           {questionaryActive ? 
