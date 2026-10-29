@@ -6,11 +6,11 @@ import { BsBoxArrowInDownLeft } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
+import { buttons } from "../data/buttons";
 
 export default function TestimonialsCard(props: any) {
-  console.log(props)
-  let { args, reduceAction } = props
-
+  let { args, reduceAction, btnAction, cardButtons } = props
+  let [btn1, btn2] = cardButtons
   const [testimonialIdx, setTestimonialIdx] = useState(0)
   //for scrolling
   const containerRef = useRef(null);
@@ -86,15 +86,22 @@ export default function TestimonialsCard(props: any) {
               (containerRef.current as any).scrollBy({ top: 100, behavior: "smooth" });
             }}
             >
-              <MdKeyboardArrowDown className=" block w-[45px] h-[45px]" />
+              <MdKeyboardArrowDown className="block w-[45px] h-[45px]" />
             </button>
           )}
-          {/*
+          
           <div className="flex flex-row justify-evenly w-full">
-            <div className="btn bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)] ">{args.button1Text}</div>
-            <div className="btn bg-neutral hover:bg-secondary active:bg-secondary border-2 rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]">{args.button2Text}</div>
+            <button className="btn bg-[#fff] hover:bg-[#fff] active:bg-[#fff] border-[1.5px] border-black rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]  active:shadow-none hover:shadow-none active:translate-x-[4px] active:translate-y-[3px]  hover:translate-x-[4px] hover:translate-y-[3px]"
+            onClick={() => btnAction(btn1)}
+            >
+              {btn1.action.title}
+            </button>
+            <button className="btn bg-[#fff] hover:bg-[#fff] active:bg-[#fff] border-[1.5px] border-black rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)] active:shadow-none hover:shadow-none active:translate-x-[4px] active:translate-y-[3px]  hover:translate-x-[4px] hover:translate-y-[3px]"
+            onClick={() => btnAction(btn2)}
+            >
+              {btn2.action.title}
+            </button>
           </div>
-          */}
         </div>
       </div >
     </>

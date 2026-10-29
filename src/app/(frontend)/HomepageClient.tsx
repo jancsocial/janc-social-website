@@ -11,6 +11,7 @@ import Calendly from "./_components/Calendly";
 import { MdQuestionMark } from "react-icons/md";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FaCircleArrowRight } from "react-icons/fa6";
+import { buttons } from "./data/buttons";
 
 export default function HomepageClient() {
   let [btnGridActive, setBtnGridActive] = useState(true)
@@ -20,77 +21,29 @@ export default function HomepageClient() {
   let [questionaryActive, setQuestionaryActive] = useState(false)
   let [calendlyActive, setCalendlyActive] = useState(false)
   let [actionArgs, setActionArgs] = useState()
+  const [cardButtons, setCardButtons] = useState([null, null])
 
-  let buttons = [
-    {
-      id: 1, title: "Real Stories", alt: "null", image: ["/client_01_tone.png", "/client_02_tone.png"], action: {
-        type: "testimonials",
-        title: "Real Stories",
-        testimonials: [{
-          name: "Rick Nikolic",
-          occupation: "Solopreneur",
-          picture: "/client_01_tone.png",
-          text: `Jan helped me recognize manipulative patterns in my work and relationships. By building awareness and responding appropriately, I strengthened my position and set clear, respectful boundaries.`
-        },
-        {
-          name: "Rick Nikolic",
-          occupation: "Solopreneur",
-          picture: "/client_02_tone.png",
-          text: `I truly enjoyed being coached by Jan. At every stage, I knew exactly where I stood and what to improve to move forward. As a result, I gained confidence and earned greater respect for myself and my boundaries.`
-        }],
-        //button1Text: buttons[1].title,
-        //button1Action: activate_button(buttons[1].action),
-        //button2Text: buttons[2].title,
-        //button2Action: activate_button(buttons[2].action) 
-      }
-    },
-    {
-      id: 2, title: "Is it for you", alt: "null", image: null, icon:  <MdQuestionMark />,action: {
-        type: "text",
-        title: "Is it for you",
-        text: `If you keep ending up in the same kind of relationship - if socializing or dating goes nowhere, if you’ve read the books, tried the techniques, maybe sat with a therapist, but then you are still stuck in the same loop and even hate yourself for it - then yes, this is for you.
-
-It starts with a free intro call: no pitch, just whether this fits. Then 1:1 over video, working a plan for what you actually do differently this week.`
-      }
-    },
-    {
-      id: 3, title: "Meet Jan", alt: "null", image: "/profile-picture-grayscale.png", action: {
-        type: "text",
-        title: "Meet Jan",
-        text: `Hello. I coach people worldwide on confidence, boundaries and dating - I work with those who struggle in relationships and dating, avoid socializing, and end up burned out and unseen - at work, with friends, and at home. ACC-credentialed through the International Coaching Federation.
-
-Most come to me in a life crisis, or simply unhappy. That’s where the pattern gets loudest - rarely where it starts. I’m also an engineer by education, so I work from both sides: rational enough to map the problem, careful enough to unpack the pain and emotions behind it. From there we build a clear action plan, laid out as a roadmap - awareness, self-integrity, assertive steps - toward a happier life and healthier relationships.
-
-If low confidence or people-pleasing is weighing on your life, book a free intro call. 1:1 online, over video, in English.` }
-        
-    },
-    {
-      id: 4, title: "What to expect", alt: "null", image: null, 
-      icon: <span className="inline-block rotate-[90deg] text-3xl leading-none"> :) </span>, 
-        action: {
-        type: "text",
-        title: "Meet Jan",
-        text: `The first call is free and takes about 45-60 minutes. You describe what’s been happening - I ask questions to find where the pattern actually starts rather than where it hurts most. There’s no pitch at the end of it. You’ll leave either with a clear picture of what working together would involve, or with something useful regardless.
-
-If we continue, we work 1:1 over video, based on the agreed frequency. The first few sessions are mostly mapping: what keeps repeating, which situations it shows up in, and what you’ve already tried. After that we build the roadmap - awareness, self-integrity, assertive steps and work through it in order rather than jumping to the hardest thing first.
-
-Between sessions you’ll have something specific to try without pushing yourself - usually a situation you would normally avoid or smooth over. We look at what actually happened, adjust, and go again. Most of the change comes from those repetitions rather than from the conversations themselves 0 the sessions are where we work out what to do next and why the last attempt went the way it did.`
-      }
-    },
-  ]
 
   function activate_button(action: any) {
     setBtnGridActive(false)
+    setCardButtons(action.cardButtonIds.map(id => buttons.find(button => button.id === id)))
     setActionArgs({ ...action })
+    console.log(String.fromCodePoint(0x1F516) + / HomepageClient.tsx ~ { ...action }: /.source)
     console.log({ ...action })
     if (!action?.type) {
       console.log("error: no action or no action.type")
     } else if (action.type === 'text') {
+      setTestimonialsCardActive(false)
       setTextCardActive(true)
     } else if (action.type === 'testimonials') {
+      setTextCardActive(false)
       setTestimonialsCardActive(true)
     }
     return
+  }
+
+  function openBtn(btn) {
+    activate_button(btn.action)
   }
 
   function reduceTextCard() {
@@ -152,7 +105,7 @@ Between sessions you’ll have something specific to try without pushing yoursel
             <div className="w-dvw flex flex-row justify-center gap-4 items-center 
             bg-[linear-gradient(to_bottom,#f6dfbb_0_24%,#FAEED4_24%_45%,#c5dfed_43%_100%)]">
               <img src="/profile_picture_2.jpg"
-                className="h-[110px] w-auto mask mask-circle"
+                className="h-[110px] w-auto rounded-full object-cover border-[1.5px] border-[#006D9C] "
                 alt="jan-cinis-picture" />
               <div className="flex flex-col gap-1 justify-between">
                 <h1 className="text-xl font-bold -mt-[2px] ">Jan Cinis</h1>
@@ -215,12 +168,19 @@ Between sessions you’ll have something specific to try without pushing yoursel
             : null
           }
           {/*TEXT CARD*/}
-
-          {textCardActive ? <TextCard args={actionArgs} reduceAction={reduceTextCard}  />
+          {textCardActive ? <TextCard 
+            args={actionArgs} reduceAction={reduceTextCard} 
+            cardButtons={cardButtons}
+            btnAction={openBtn}
+            />
             : null
           }
           {/*TESTIMONIALS CARD*/}
-          {testimonialsCardActive ? <TestimonialsCard args={actionArgs} reduceAction={reduceTestimonialsCard} />
+          {testimonialsCardActive ? <TestimonialsCard 
+            args={actionArgs} reduceAction={reduceTestimonialsCard} 
+            cardButtons={cardButtons}
+            btnAction={openBtn} 
+            />
             : null
           }
           {callBtnActive ?

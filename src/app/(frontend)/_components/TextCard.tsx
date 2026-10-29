@@ -7,7 +7,8 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 export default function TextCard(props: any) {
   console.log(props)
-  let { args, reduceAction} = props
+  let { args, reduceAction, btnAction, cardButtons } = props
+  let [btn1, btn2] = cardButtons
 
   const containerRef = useRef(null);
   const [hasScroll, setHasScroll] = useState(false);
@@ -56,13 +57,18 @@ export default function TextCard(props: any) {
               <MdKeyboardArrowDown className=" block w-[45px] h-[45px]" />
             </button>
           )}
-
-          {/*
-          <div className="flex flex-row justify-evenly">
-            <div className="btn">Button 1</div>
-            <div className="btn">Button 2</div>
+          <div className="flex flex-row justify-evenly w-full">
+            <button className="btn bg-[#fff] hover:bg-[#fff] active:bg-[#fff] border-[1.5px] border-black rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]  active:shadow-none hover:shadow-none active:translate-x-[4px] active:translate-y-[3px]  hover:translate-x-[4px] hover:translate-y-[3px]"
+            onClick={() => btnAction(btn1)}
+            >
+              {btn1.action.title}
+            </button>
+            <button className="btn bg-[#fff] hover:bg-[#fff] active:bg-[#fff] border-[1.5px] border-black rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)] active:shadow-none hover:shadow-none active:translate-x-[4px] active:translate-y-[3px]  hover:translate-x-[4px] hover:translate-y-[3px]"
+            onClick={() => btnAction(btn2)}
+            >
+              {btn2.action.title}
+            </button>
           </div>
-          */}
         </div>
       </div >
     </>
