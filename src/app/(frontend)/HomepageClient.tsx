@@ -147,16 +147,23 @@ export default function HomepageClient() {
                               src={button.image[0]}
                               alt=""
                               className="h-10 w-auto"
+                              draggable={false}
+                              onContextMenu={event => event.preventDefault()}
                             />
                             <img
                               key="btn-img-2"
                               src={button.image[1]}
                               alt=""
                               className="-ml-7 h-10 w-auto"
+                              draggable={false}
+                              onContextMenu={event => event.preventDefault()}
                             />
                           </div>
                         ) : button.image ?
-                          <img src={button.image} className="h-10 w-auto" alt={button.alt} />
+                          <img src={button.image} className="h-10 w-auto" alt={button.alt} 
+                            draggable={false}
+                            onContextMenu={event => event.preventDefault()}
+                          />
                           : <div className="h-10 [&>svg]:h-10 [&>svg]:w-auto">{button.icon}</div>
                         }
                       </label>
