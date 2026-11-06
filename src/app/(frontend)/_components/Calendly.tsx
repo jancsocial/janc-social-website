@@ -1,10 +1,12 @@
 import { BsBoxArrowInLeft } from "react-icons/bs";
 import Script from "next/script";
+import { useEffect, useRef } from "react";
 
 import { InlineWidget } from "react-calendly";
 
 export default function Calendly(props: any) {
   const {reduceAction} = props
+
   function handleReduceBtn() { 
     reduceAction()
   }
@@ -19,8 +21,7 @@ export default function Calendly(props: any) {
         </div>
         </button>
       </div>
-      <InlineWidget url="https://calendly.com/janc-social-team/30min" />
-
+      <InlineWidget url="https://calendly.com/janc-social-team/30min" styles={{ "data-resize": "true"}} />
     </>
   )
 }

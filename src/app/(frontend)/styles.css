@@ -13,8 +13,8 @@ body {
   name:"light-theme";
   default: true;
 
-  --color-primary: #FAEED4;
-  --color-neutral: #F9F2EB;
+  --color-primary: #F1F0EB;
+  --color-neutral: #FFF;
   --color-secondary: #D1CDA4;
   --color-accent: #000;
   --color-accent-content: #FFFAC8;

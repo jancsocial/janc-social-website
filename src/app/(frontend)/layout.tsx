@@ -1,11 +1,12 @@
 import React from 'react'
 import type { Viewport } from 'next'
 import ViewportHeight from './ViewportHeight'
+import { Nunito_Sans } from "next/font/google";
 import './styles.css'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'You are here because the people you give the most to are the ones who treat you the worst',
+  title: 'JanC Social',
 }
 
 export const viewport: Viewport = {
@@ -14,6 +15,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
@@ -21,9 +26,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-theme="light-theme">
       <head>
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/JC_transparent.png" />
       </head>
-      <body >
+      <body className={nunitoSans.className}>
         <ViewportHeight />
         <main>{children}</main>
       </body>

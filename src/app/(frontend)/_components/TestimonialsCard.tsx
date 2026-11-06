@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { IconContext } from "react-icons";
 import { BsBoxArrowInDownLeft } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import { MdKeyboardArrowLeft } from "react-icons/md";
+import { SlArrowLeft } from "react-icons/sl";
+import { SlArrowRight } from "react-icons/sl";
+import { RiArrowDropLeftLine} from "react-icons/ri";
+import { RiArrowDropRightLine } from "react-icons/ri";
 import { buttons } from "../data/buttons";
 
 export default function TestimonialsCard(props: any) {
@@ -40,7 +42,7 @@ export default function TestimonialsCard(props: any) {
 
   return (
     <>
-      <div className="overflow-hidden min-h-0 flex-1 card border-2 bg-neutral w-full">
+      <div className="overflow-hidden h-[393px] card bg-[#E5DEDB] shadow-[7px_7px_4px_rgba(0,0,0,0.3)] ">
         <div className="overflow-hidden min-h-0 card-body flex flex-col items-center justify-between">
           <div className=" grid w-full grid-cols-[1fr_auto_1fr] items-center " >
             <span />
@@ -53,7 +55,7 @@ export default function TestimonialsCard(props: any) {
             <button className="absolute left-6 top-1/2 z-10 -translate-y-1/2 cursor-pointer active:scale-95"
               onClick={() => setTestimonialIdx((testimonialIdx - 1 + args.testimonials.length)  % args.testimonials.length) }
             >
-              <MdKeyboardArrowLeft className=" block w-[45px] h-[45px]" />
+              <SlArrowLeft className=" block w-[20px] h-[20px]" />
             </button>
             {/*
             <button className="shrink-0 w-[45px] h-[45px] cursor-pointer active:scale-95">
@@ -62,7 +64,7 @@ export default function TestimonialsCard(props: any) {
             */}
             <div ref={containerRef} className="overflow-y-auto overflow-x-hidden flex-1 text-xl flex flex-col items-center-safe">
               <img src={args.testimonials[testimonialIdx]["picture"]}
-                className="flex-none h-[110px] w-auto"
+                className="flex-none h-[80px] w-auto"
                 alt={`client-${testimonialIdx}-picture`} />
               <p className="text-sm font-bold flex-none">{args.testimonials[testimonialIdx]["name"]}</p>
               <p className="text-sm pb-2 flex-none">{args.testimonials[testimonialIdx]["occupation"]}</p>
@@ -71,11 +73,10 @@ export default function TestimonialsCard(props: any) {
               </div>
 
             </div>
-            <button className="absolute right-6 top-1/2 z-10 -translate-y-1/2 cursor-pointer active:scale-95"
+            <button className="absolute right-6 top-1/2 z-10 -translate-y-1/2 cursor-pointer active:scale-95 w-[45px] h-[45px] flex items-center justify-right"
               onClick={() => setTestimonialIdx((testimonialIdx + 1)  % args.testimonials.length) }
             >
-
-              <MdKeyboardArrowRight className=" block w-[45px] h-[45px]" />
+              <SlArrowRight className="w-[20px] h-[20px]" />
             </button>
             {/*
             <button className="shrink-0 w-[45px] h-[45px] cursor-pointer active:scale-95">
@@ -85,22 +86,23 @@ export default function TestimonialsCard(props: any) {
 
           </div>
 
-          {hasScroll && (
-            <button className="flex-none cursor-pointer w-[45px] h-[45px]" onClick={() => {
-              (containerRef.current as any).scrollBy({ top: 100, behavior: "smooth" });
-            }}
-            >
-              <MdKeyboardArrowDown className="block w-[45px] h-[45px]" />
-            </button>
-          )}
-          
           <div className="flex flex-row justify-evenly w-full">
-            <button className="btn bg-[#fff] hover:bg-[#fff] active:bg-[#fff] border-[1.5px] border-black rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)]  active:shadow-none hover:shadow-none active:translate-x-[4px] active:translate-y-[3px]  hover:translate-x-[4px] hover:translate-y-[3px]"
+            <button className="btn bg-[#794B4B] w-[90px] text-white border-none text-[12px] leading-4 rounded-md shadow-[7px_7px_4px_rgba(0,0,0,0.3)]  active:shadow-none active:translate-x-[4px] active:translate-y-[3px]" 
             onClick={() => btnAction(btn1)}
             >
               {btn1.action.title}
             </button>
-            <button className="btn bg-[#fff] hover:bg-[#fff] active:bg-[#fff] border-[1.5px] border-black rounded-xl shadow-[7px_7px_0_rgba(0,0,0,0.3)] active:shadow-none hover:shadow-none active:translate-x-[4px] active:translate-y-[3px]  hover:translate-x-[4px] hover:translate-y-[3px]"
+
+            {hasScroll && (
+              <button className="flex-none cursor-pointer w-[45px] h-[45px]" onClick={() => {
+                (containerRef.current as any).scrollBy({ top: 100, behavior: "smooth" });
+              }}
+              >
+                <MdKeyboardArrowDown className="block w-[45px] h-[45px]" />
+              </button>
+            )}
+          
+            <button className="btn bg-[#2B3361] w-[90px] text-white border-none text-[12px] leading-4 rounded-md shadow-[7px_7px_3px_rgba(0,0,0,0.3)] active:shadow-none  active:translate-x-[4px] active:translate-y-[3px]"
             onClick={() => btnAction(btn2)}
             >
               {btn2.action.title}

@@ -6,7 +6,12 @@ import { MdQuestionMark } from "react-icons/md";
 //title and action.title must be the same
 export const buttons = [
     {
-      id: 1, title: "Real Stories", alt: "null", image: ["/client_01_tone.png", "/client_02_tone.png"], action: {
+      id: 1, layout: "testimonials", title: "Real\nStories", alt: "null", image: ["/client_01_tone.png", "/client_02_tone.png", "/client_03_tone.png"], 
+      style: {
+        button: "bg-[#794B4B] ",
+        text: "text-white"
+      },
+      action: {
         id: 1,
         type: "testimonials",
         title: "Real Stories",
@@ -19,15 +24,22 @@ export const buttons = [
 
         },
         {
-          name: "Rick Nikolic",
-          occupation: "Solopreneur",
+          name: "Lee Khedr",
+          occupation: "Writer",
           picture: "/client_02_tone.png",
           text: `I truly enjoyed being coached by Jan. At every stage, I knew exactly where I stood and what to improve to move forward. As a result, I gained confidence and earned greater respect for myself and my boundaries.`
-        }],
+        },
+        ],
       }
     },
     {
-      id: 2, title: "Is it for you", alt: "null", image: null, icon:  <MdQuestionMark />,action: {
+      id: 2, layout: "why", title: "Is it for\nyou?", alt: "null", image: "/thinking_statue_cropped.png", icon:  <MdQuestionMark />,
+        style: {
+          button: "bg-[linear-gradient(270deg,_#CFC4C0_0%,_#E5DADA_29.81%,_#E5DDDA_63.94%,_#EBE8E5_100%)]",
+          image: "absolute object-contain bottom-0 right-0 h-[88%] w-[55%]",
+          text: "absolute left-[15%] top-1/2 -translate-y-1/2 text-center text-xl"
+        },
+        action: {
         id: 2,
         type: "text",
         title: "Is it for you?",
@@ -38,7 +50,12 @@ It starts with a free intro call: no pitch, just whether this fits. Then 1:1 ove
       }
     },
     {
-      id: 3, title: "Meet Jan", alt: "null", image: "/profile-picture-grayscale.png", action: {
+      id: 3, layout: "about", title: "Meet\nJan", alt: "null", image: "/bg-meet-jan.jpg", 
+      style: {
+        image: "scale-125 h-full w-full object-cover",
+        text: "absolute left-[55%] top-1/2 -translate-y-1/2 text-center text-xl"
+      },
+      action: {
         id: 3,
         type: "text",
         title: "Meet Jan",
@@ -51,14 +68,18 @@ If low confidence or people-pleasing is weighing on your life, book a free intro
         
     },
     {
-      id: 4, title: "What to expect", alt: "null", image: null, 
+      id: 4, layout:"expect", title: "What to expect", alt: "null", image: null, 
       icon: <span className="inline-block rotate-[90deg] text-3xl leading-none"> :) </span>, 
-        action: {
-        id: 4,
-        type: "text",
-        title: "What to expect",
-        cardButtonIds: [3, 2],
-        text: `The first call is free and takes about 45-60 minutes. You describe what’s been happening - I ask questions to find where the pattern actually starts rather than where it hurts most. There’s no pitch at the end of it. You’ll leave either with a clear picture of what working together would involve, or with something useful regardless.
+      style: {
+        button: "bg-[#2B3361]", 
+        text: "text-white"
+      },
+      action: {
+      id: 4,
+      type: "text",
+      title: "What to expect",
+      cardButtonIds: [3, 2],
+      text: `The first call is free and takes about 45-60 minutes. You describe what’s been happening - I ask questions to find where the pattern actually starts rather than where it hurts most. There’s no pitch at the end of it. You’ll leave either with a clear picture of what working together would involve, or with something useful regardless.
 
 If we continue, we work 1:1 over video, based on the agreed frequency. The first few sessions are mostly mapping: what keeps repeating, which situations it shows up in, and what you’ve already tried. After that we build the roadmap - awareness, self-integrity, assertive steps and work through it in order rather than jumping to the hardest thing first.
 
