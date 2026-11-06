@@ -109,7 +109,7 @@ export default function HomepageClient() {
         <div className="h-dvh flex flex-col justify-start items-center px-6 ">
           <div className=" w-dvw overflow-hidden bg-[#E6E5E3] " >
             <div className="relative">
-              <img className="absolute left-[45%] -translate-x-1/2 h-[140px] w-auto inset-0 object-cover scale-120 " src="/profile-bg-crop-3.jpg" /> 
+              <img className="absolute left-[45%] -translate-x-1/2 h-[160px] w-auto inset-0 object-cover scale-120 " src="/profile-bg-crop-3.jpg" /> 
               <div className="relative w-full z-10 flex flex-row justify-center gap-4 items-start pb-4 pt-2">
                 <div className="h-[110px] w-[110px]"></div>
                 <div className="flex flex-col gap-0">
@@ -140,7 +140,7 @@ export default function HomepageClient() {
             { mainAreaActive &&
               <>
                 {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
-                <p className="max-w-80 text-[17.5px] font-light text-center py-4" >You are here because the people you give the most to are the ones who treat you <span className="font-semibold">the worst</span></p> 
+                <p className="max-w-80 text-[17.5px] font-light text-center py-9" >You are here because the people you give the most to are the ones who treat you <span className="font-semibold">the worst</span></p> 
                 <div className="overflow-x-auto w-dvw min-w-0 flex flex-1 flex-col items-center justify-start bg-primary py-[20px] " > 
                   { btnGridActive ?
                     <div className="grid grid-cols-[repeat(2,10rem)] gap-4">

@@ -36,7 +36,7 @@ export const buttons = [
       id: 2, layout: "why", title: "Is it for\nyou?", alt: "null", image: "/thinking_statue_cropped.png", icon:  <MdQuestionMark />,
         style: {
           button: "bg-[linear-gradient(270deg,_#CFC4C0_0%,_#E5DADA_29.81%,_#E5DDDA_63.94%,_#EBE8E5_100%)]",
-          image: "absolute object-contain bottom-0 right-0 h-[88%] w-[55%]",
+          image: "absolute object-contain bottom-0 -right-1 h-[88%] w-[55%]",
           text: "absolute left-[15%] top-1/2 -translate-y-1/2 text-center text-xl"
         },
         action: {

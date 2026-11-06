@@ -42,7 +42,7 @@ export default function TestimonialsCard(props: any) {
 
   return (
     <>
-      <div className="overflow-hidden h-[393px] card bg-[#E5DEDB] shadow-[7px_7px_4px_rgba(0,0,0,0.3)] ">
+      <div className="overflow-hidden h-[432px] card bg-[#E5DEDB] shadow-[7px_7px_4px_rgba(0,0,0,0.3)] ">
         <div className="overflow-hidden min-h-0 card-body flex flex-col items-center justify-between">
           <div className=" grid w-full grid-cols-[1fr_auto_1fr] items-center " >
             <span />
