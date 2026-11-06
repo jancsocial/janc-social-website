@@ -53,7 +53,7 @@ It starts with a free intro call: no pitch, just whether this fits. Then 1:1 ove
       id: 3, layout: "about", title: "Meet\nJan", alt: "null", image: "/bg-meet-jan.jpg", 
       style: {
         image: "scale-125 h-full w-full object-cover",
-        text: "absolute left-[55%] top-1/2 -translate-y-1/2 text-center text-xl"
+        text: "absolute left-[50%] top-1/2 -translate-y-1/2 text-center text-xl"
       },
       action: {
         id: 3,

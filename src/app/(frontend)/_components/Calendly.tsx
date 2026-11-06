@@ -23,7 +23,9 @@ export default function Calendly(props: any) {
         </div>
         </button>
       </div>
-      <InlineWidget url="https://calendly.com/janc-social-team/30min" />
+      <InlineWidget url="https://calendly.com/janc-social-team/30min"
+styles={{ maxHeight: "calc(100dvh - 170px)" }}
+        />
     </>
   )
 }
