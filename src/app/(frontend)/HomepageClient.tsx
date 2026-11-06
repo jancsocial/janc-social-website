@@ -29,7 +29,7 @@ export default function HomepageClient() {
 
   function activate_button(action: any) {
     setBtnGridActive(false)
-    setCardButtons(action.cardButtonIds.map(id => buttons.find(button => button.id === id)))
+    setCardButtons(action.cardButtonIds.map((id: number) => buttons.find(button => button.id === id)))
     setActionArgs({ ...action })
     console.log(String.fromCodePoint(0x1F516) + / HomepageClient.tsx ~ { ...action }: /.source)
     console.log({ ...action })
@@ -45,7 +45,7 @@ export default function HomepageClient() {
     return
   }
 
-  function openBtn(btn) {
+  function openBtn(btn: any) {
     activate_button(btn.action)
   }
 
@@ -149,7 +149,7 @@ export default function HomepageClient() {
                           onClick={() => activate_button(button.action)} >
                             {button.image && button.layout != 'testimonials' && (
                               <img
-                                src={button.image}
+                                src={button.image as any}
                                 alt=""
                                 aria-hidden="true"
                                 className={`absolute  ${button.style?.image ?? ''}`}
