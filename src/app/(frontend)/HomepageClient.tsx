@@ -18,6 +18,7 @@ export default function HomepageClient() {
 
   let [mainAreaActive, setMainAreaActive] = useState(true)
   let [btnGridActive, setBtnGridActive] = useState(true)
+  let [presentationTextActive, setPresentationTextActive] = useState(true)
   let [textCardActive, setTextCardActive] = useState(false)
   let [testimonialsCardActive, setTestimonialsCardActive] = useState(false)
   let [callBtnActive, setCallBtnActive] = useState(true)
@@ -29,6 +30,7 @@ export default function HomepageClient() {
 
   function activate_button(action: any) {
     setBtnGridActive(false)
+    setPresentationTextActive(false)
     setCardButtons(action.cardButtonIds.map((id: number) => buttons.find(button => button.id === id)))
     setActionArgs({ ...action })
     console.log(String.fromCodePoint(0x1F516) + / HomepageClient.tsx ~ { ...action }: /.source)
@@ -52,12 +54,14 @@ export default function HomepageClient() {
   function reduceTextCard() {
     console.log("reduceTextCard")
     setBtnGridActive(true)
+    setPresentationTextActive(true)
     setTextCardActive(false)
   }
 
   function reduceTestimonialsCard() {
     console.log("reduceTestimonialsCard")
     setBtnGridActive(true)
+    setPresentationTextActive(true)
     setTestimonialsCardActive(false)
   }
   
@@ -65,6 +69,7 @@ export default function HomepageClient() {
     console.log("reduceQuestionary")
     setMainAreaActive(true)
     setBtnGridActive(true)
+    setPresentationTextActive(true)
     setQuestionaryActive(false)
     setCallBtnActive(true)
   }
@@ -73,6 +78,7 @@ export default function HomepageClient() {
     console.log("reduceCalendly")
     setMainAreaActive(true)
     setBtnGridActive(true)
+    setPresentationTextActive(true)
     setCalendlyActive(false)
     setCallBtnActive(true)
   }
@@ -82,6 +88,7 @@ export default function HomepageClient() {
     //make all useState that control the Active state of element be false
     setMainAreaActive(false)
     setBtnGridActive(false)
+    setPresentationTextActive(true)
     setTextCardActive(false)
     setTestimonialsCardActive(false)
 
@@ -106,14 +113,14 @@ export default function HomepageClient() {
   return (
     <>
       <div className="bg-[#fff]">
-        <div className="h-dvh flex flex-col justify-start items-center px-6 ">
+        <div className="h-dvh flex flex-col justify-start items-center md:px-6 ">
           <div className=" w-dvw overflow-hidden bg-[#E6E5E3] " >
-            <div className="relative h-[130px]">
+            <div className="relative h-[170px]">
               <div className="absolute left-[52%] top-0 h-full -translate-x-1/2">
-                <img className="absolute -left-[10%] h-[170px] w-auto inset-0 object-cover scale-120 " src="/profile-bg-crop-3.jpg" /> 
+                <img className="absolute -left-[55%] h-[170px] w-auto object-cover scale-120 max-w-none " src="/profile-bg-crop-3.jpg" /> 
                 <div className="relative w-full z-10 flex flex-row justify-center gap-4 items-start pb-4 pt-2">
                   <div className="w-[110px]"></div>
-                  <div className="flex flex-col gap-0">
+                  <div className="flex flex-col gap-0 w-full">
                     <h1 className="text-[14px] font-bold -mt-[2px] ">Jan Cinis</h1>
                     <div>
                       <p className="text-[10px]">Certified Coach, ACC ICF</p>
@@ -137,12 +144,12 @@ export default function HomepageClient() {
             </div>
           </div>
 
-          <div className="relative flex flex-col items-center h-full max-h-[calc(100dvh-130px)] w-full">
+          <div className="relative flex flex-col items-center h-full max-h-[calc(100dvh-170px)] w-full">
             {/*SET OF BUTTONS (+ presentation text)*/}
             { mainAreaActive &&
               <>
                 {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
-                <p className="max-w-80 text-[17.5px] font-light text-center py-6" >You are here because the people you give the most to are the ones who treat you <span className="font-semibold">the worst</span></p> 
+                <p className={`max-w-80 text-[17.5px] font-light text-center py-6 ${presentationTextActive ? null : 'invisible'}`} >You are here because the people you give the most to are the ones who treat you <span className="font-semibold">the worst</span></p> 
                 <div className="overflow-x-auto w-dvw h-max min-w-0 flex flex-col items-center justify-start bg-primary py-[20px] " > 
                   {// btnGridActive ?
                     <div className={`grid grid-cols-[repeat(2,10rem)] gap-4 ${btnGridActive ? null : 'invisible'}`}>
@@ -212,7 +219,7 @@ export default function HomepageClient() {
             }
             {/*TEXT CARD*/}
             {textCardActive ? 
-              <div className="absolute inset-0 z-30 w-full h-[428px] pt-4 md:px-5 pb-2 flex flex-col justify-start items-center">
+              <div className="absolute inset-0 z-30 w-full h-[428px] pt-4 px-5 pb-2 flex flex-col justify-start items-center">
                 <TextCard 
                   args={actionArgs} reduceAction={reduceTextCard} 
                   cardButtons={cardButtons}
