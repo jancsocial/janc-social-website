@@ -108,27 +108,29 @@ export default function HomepageClient() {
       <div className="bg-[#fff]">
         <div className="h-dvh flex flex-col justify-start items-center px-6 ">
           <div className=" w-dvw overflow-hidden bg-[#E6E5E3] " >
-            <div className="relative">
-              <img className="absolute left-[48.5%] -translate-x-1/2 h-[170px] w-auto inset-0 object-cover scale-120 " src="/profile-bg-crop-3.jpg" /> 
-              <div className="relative w-full z-10 flex flex-row justify-center gap-4 items-start pb-4 pt-2">
-                <div className="h-[130px] w-[110px]"></div>
-                <div className="flex flex-col gap-0">
-                  <h1 className="text-[14px] font-bold -mt-[2px] ">Jan Cinis</h1>
-                  <div>
-                    <p className="text-[10px]">Certified Coach, ACC ICF</p>
-                    <div className="flex flex-row gap-1 items-center">
-                      <p className="text-[10px]">4 375 followers</p>
-                      <div className="flex flex-row items-center">
-                        <IoLogoLinkedin className="h-[16px] w-auto" />
-                        <CiInstagram className="h-[16px] w-auto" />
-                        <AiOutlineTikTok className="h-[16px] w-auto" />
-                        <FaFacebook className="h-[13px] w-auto" />
+            <div className="relative h-[130px]">
+              <div className="absolute left-[52%] top-0 h-full -translate-x-1/2">
+                <img className="absolute -left-[10%] h-[170px] w-auto inset-0 object-cover scale-120 " src="/profile-bg-crop-3.jpg" /> 
+                <div className="relative w-full z-10 flex flex-row justify-center gap-4 items-start pb-4 pt-2">
+                  <div className="w-[110px]"></div>
+                  <div className="flex flex-col gap-0">
+                    <h1 className="text-[14px] font-bold -mt-[2px] ">Jan Cinis</h1>
+                    <div>
+                      <p className="text-[10px]">Certified Coach, ACC ICF</p>
+                      <div className="flex flex-row gap-1 items-center">
+                        <p className="text-[10px]">4 375 followers</p>
+                        <div className="flex flex-row items-center">
+                          <IoLogoLinkedin className="h-[16px] w-auto" />
+                          <CiInstagram className="h-[16px] w-auto" />
+                          <AiOutlineTikTok className="h-[16px] w-auto" />
+                          <FaFacebook className="h-[13px] w-auto" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div>
-                    <p className="text-[8px] font-bold">Boundaries, Confidence,</p>
-                    <p className="text-[8px] font-bold">People-pleasing Coaching</p>
+                    <div>
+                      <p className="text-[8px] font-bold">Boundaries, Confidence,</p>
+                      <p className="text-[8px] font-bold">People-pleasing Coaching</p>
+                    </div>
                   </div>
                 </div>
               </div>
