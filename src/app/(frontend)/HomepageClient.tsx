@@ -137,15 +137,15 @@ export default function HomepageClient() {
             </div>
           </div>
 
-          <div className="relative flex flex-col items-center h-full max-h-[calc(100dvh-170px)] w-full">
+          <div className="relative flex flex-col items-center h-full max-h-[calc(100dvh-130px)] w-full">
             {/*SET OF BUTTONS (+ presentation text)*/}
             { mainAreaActive &&
               <>
                 {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
                 <p className="max-w-80 text-[17.5px] font-light text-center py-6" >You are here because the people you give the most to are the ones who treat you <span className="font-semibold">the worst</span></p> 
-                <div className="overflow-x-auto w-dvw min-w-0 flex flex-1 flex-col items-center justify-start bg-primary py-[20px] " > 
-                  { btnGridActive ?
-                    <div className="grid grid-cols-[repeat(2,10rem)] gap-4">
+                <div className="overflow-x-auto w-dvw h-max min-w-0 flex flex-col items-center justify-start bg-primary py-[20px] " > 
+                  {// btnGridActive ?
+                    <div className={`grid grid-cols-[repeat(2,10rem)] gap-4 ${btnGridActive ? null : 'invisible'}`}>
                       {buttons.map((button) => (
                         <button key={button.id} className={`btn border-none after:absolute after:inset-0 after:z-20  hover:after:ring-inset hover:after:ring-1 hover:after:ring-black after:rounded-[inherit] relative overflow-hidden h-[131px] w-[151px] rounded-md shadow-[7px_7px_4px_rgba(0,0,0,0.3)] active:shadow-none active:translate-x-[4px] active:translate-y-[3px] ${button.style?.button ?? ''} `} 
                           onClick={() => activate_button(button.action)} >
@@ -200,7 +200,7 @@ export default function HomepageClient() {
                         </button>
                       ))}
                     </div> 
-                    : null 
+                    //: null 
                   }
                   {callBtnActive ?
                     <button className="btn bg-black border-none text-white mt-6 rounded-md mb-2 shadow-[7px_7px_4px_rgba(0,0,0,0.3)] active:shadow-none active:translate-x-[4px] active:translate-y-[3px] w-[320px]  " onClick={() => openCalendly()} >BOOK MY FREE DISCOVERY CALL</button>
@@ -212,31 +212,23 @@ export default function HomepageClient() {
             }
             {/*TEXT CARD*/}
             {textCardActive ? 
-              <div className="absolute inset-0 z-30 w-full h-full pt-4 md:px-5 pb-2 flex flex-col justify-start items-center">
+              <div className="absolute inset-0 z-30 w-full h-[428px] pt-4 md:px-5 pb-2 flex flex-col justify-start items-center">
                 <TextCard 
                   args={actionArgs} reduceAction={reduceTextCard} 
                   cardButtons={cardButtons}
                   btnAction={openBtn}
                 />
-                {callBtnActive ?
-                  <button className="btn bg-black text-white border-none mt-6 rounded-md mb-2 shadow-[7px_7px_4px_rgba(0,0,0,0.3)] active:shadow-none active:translate-x-[4px] active:translate-y-[3px] w-[320px]" onClick={() => openCalendly()} >BOOK MY FREE DISCOVERY CALL</button>
-                  : null
-                }
               </div>
               : null
             }
             {/*TESTIMONIALS CARD*/}
             {testimonialsCardActive ? 
-              <div className="absolute inset-0 z-30 w-full h-full pt-4 md:px-5 pb-2 flex flex-col justify-start items-center">
+              <div className="absolute inset-0 z-30 w-full h-[428px] pt-4 md:px-5 pb-2 flex flex-col justify-start items-center">
                 <TestimonialsCard 
                   args={actionArgs} reduceAction={reduceTestimonialsCard} 
                   cardButtons={cardButtons}
                   btnAction={openBtn} 
                 />
-                {callBtnActive ?
-                  <button className="btn bg-black text-white border-none mt-6 rounded-md mb-2 shadow-[7px_7px_4px_rgba(0,0,0,0.3)] active:shadow-none active:translate-x-[4px] active:translate-y-[3px] w-[320px]" onClick={() => openCalendly()} >BOOK MY FREE DISCOVERY CALL</button>
-                  : null
-                }
               </div>
               : null
             }
