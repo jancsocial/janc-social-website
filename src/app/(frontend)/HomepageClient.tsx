@@ -147,7 +147,7 @@ export default function HomepageClient() {
           <div className="relative flex flex-col items-center h-full max-h-[calc(100dvh-170px)] w-full">
             {/*SET OF BUTTONS (+ presentation text)*/}
             { mainAreaActive &&
-              <>
+              <div className="contents">
                 {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
                 <p className={`max-w-80 text-[17.5px] font-light text-center py-6 ${presentationTextActive ? null : 'invisible'}`} >You are here because the people you give the most to are the ones who treat you <span className="font-semibold">the worst</span></p> 
                 <div className="overflow-x-auto w-dvw h-max min-w-0 flex flex-col items-center justify-start bg-primary py-[20px] " > 
@@ -214,7 +214,7 @@ export default function HomepageClient() {
                     : null
                   }
                 </div>
-              </>
+              </div>
               
             }
             {/*TEXT CARD*/}
@@ -230,7 +230,7 @@ export default function HomepageClient() {
             }
             {/*TESTIMONIALS CARD*/}
             {testimonialsCardActive ? 
-              <div className="absolute inset-0 z-30 w-full h-[428px] pt-4 md:px-5 pb-2 flex flex-col justify-start items-center">
+              <div className="absolute inset-0 z-30 w-full h-[428px] pt-4 px-5 pb-2 flex flex-col justify-start items-center">
                 <TestimonialsCard 
                   args={actionArgs} reduceAction={reduceTestimonialsCard} 
                   cardButtons={cardButtons}
