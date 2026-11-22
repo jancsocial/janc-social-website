@@ -225,7 +225,7 @@ export default function HomepageClient() {
                     {rowBtns.map((button) => (
                       <div 
                         key={button.id}
-                        className="w-full pt-4 px-5 pb-2 flex flex-col justify-start items-center">
+                        className="w-full max-w-[817px] pt-4 px-5 pb-2 flex flex-col justify-start items-center">
                         { button.action.type === 'text' ?
                             <TextCard
                               args={{ ...button.action }} reduceAction={reduceTextCard} 
