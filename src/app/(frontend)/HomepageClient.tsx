@@ -27,6 +27,14 @@ export default function HomepageClient() {
   let [actionArgs, setActionArgs] = useState()
   const [cardButtons, setCardButtons] = useState([null, null])
 
+  const btnAboutData = buttons.find((button) => button.layout === "about")
+  const btnWhyData = buttons.find((button) => button.layout === "why")
+  const btnExpectData = buttons.find((button) => button.layout === "expect")
+  const btnTestimonialsData = buttons.find((button) => button.layout === "testimonials")
+  const cardRowOrder = ["about", "why", "expect", "testimonials"]
+  const rowBtns = [...buttons].sort(
+    (a, b) => cardRowOrder.indexOf(a.layout) - cardRowOrder.indexOf(b.layout)
+  );
 
   function activate_button(action: any) {
     setBtnGridActive(false)
@@ -150,9 +158,9 @@ export default function HomepageClient() {
               <div className="contents">
                 {/*my-auto is kinda equivalent to flex-1, with the text being centered vertically*/}
                 <p className={`max-w-80 text-[17.5px] font-light text-center py-6 ${presentationTextActive ? null : 'invisible'}`} >You are here because the people you give the most to are the ones who treat you <span className="font-semibold">the worst</span></p> 
-                <div className="overflow-x-auto w-dvw h-max min-w-0 flex flex-col items-center justify-start bg-primary py-[20px] " > 
+                <div className="overflow-x-auto md:overflow-x-visible w-dvw h-max min-w-0 flex flex-col items-center justify-start bg-primary py-[20px] " > 
                   {// btnGridActive ?
-                    <div className={`grid grid-cols-[repeat(2,10rem)] gap-4 ${btnGridActive ? null : 'invisible'}`}>
+                    <div className={`grid grid-cols-[repeat(2,10rem)] gap-4 mb-6 ${btnGridActive ? null : 'invisible'} md:hidden`}>
                       {buttons.map((button) => (
                         <button key={button.id} className={`btn border-none after:absolute after:inset-0 after:z-20  hover:after:ring-inset hover:after:ring-1 hover:after:ring-black after:rounded-[inherit] relative overflow-hidden h-[131px] w-[151px] rounded-md shadow-[7px_7px_4px_rgba(0,0,0,0.3)] active:shadow-none active:translate-x-[4px] active:translate-y-[3px] ${button.style?.button ?? ''} `} 
                           onClick={() => activate_button(button.action)} >
@@ -210,9 +218,37 @@ export default function HomepageClient() {
                     //: null 
                   }
                   {callBtnActive ?
-                    <button className="btn bg-black border-none text-white mt-6 rounded-md mb-2 shadow-[7px_7px_4px_rgba(0,0,0,0.3)] active:shadow-none active:translate-x-[4px] active:translate-y-[3px] w-[320px]  " onClick={() => openCalendly()} >BOOK MY FREE DISCOVERY CALL</button>
+                    <button className="btn bg-black border-none text-white rounded-md mb-2 shadow-[7px_7px_4px_rgba(0,0,0,0.3)] active:shadow-none active:translate-x-[4px] active:translate-y-[3px] w-[320px]  " onClick={() => openCalendly()} >BOOK MY FREE DISCOVERY CALL</button>
                     : null
                   }
+                  <div className="hidden md:block">
+                    {rowBtns.map((button) => (
+                      <div 
+                        key={button.id}
+                        className="w-full pt-4 px-5 pb-2 flex flex-col justify-start items-center">
+                        { button.action.type === 'text' ?
+                            <TextCard
+                              args={{ ...button.action }} reduceAction={reduceTextCard} 
+                              cardButtons={button.action.cardButtonIds.map((id: number) => buttons.find(button => button.id === id))}
+                              btnAction={openBtn}
+                              showReduceBtn={false}
+                              showNavBtns={false}
+                            />
+                          : button.action.type === 'testimonials' ?
+                            <TestimonialsCard 
+                              args={{ ...button.action }} reduceAction={reduceTextCard} 
+                              cardButtons={button.action.cardButtonIds.map((id: number) => buttons.find(button => button.id === id))}
+                              btnAction={openBtn} 
+                              showReduceBtn={false}
+                              showNavBtns={false}
+                            />
+                          : null
+
+                        }
+                      </div>
+
+                    ))}
+                  </div>
                 </div>
               </div>
               
@@ -245,6 +281,7 @@ export default function HomepageClient() {
               </div >
               : null
             }
+
             {calendlyActive ?
               <div className="bg-[#0C1B33] w-[calc(100%+3rem)] h-full -mx-6 -mb-4 border-t-2 px-4 pt-[30px]">
                 <Calendly reduceAction={reduceCalendly} />

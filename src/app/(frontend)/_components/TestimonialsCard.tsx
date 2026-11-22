@@ -11,7 +11,7 @@ import { RiArrowDropRightLine } from "react-icons/ri";
 import { buttons } from "../data/buttons";
 
 export default function TestimonialsCard(props: any) {
-  let { args, reduceAction, btnAction, cardButtons } = props
+  let { args, reduceAction, btnAction, cardButtons, showNavBtns, showReduceBtn } = props
   let [btn1, btn2] = cardButtons
   const [testimonialIdx, setTestimonialIdx] = useState(0)
   //for scrolling
@@ -41,12 +41,12 @@ export default function TestimonialsCard(props: any) {
   }, [])
 
   return (
-    <div className="overflow-hidden h-full card bg-[#E5DEDB] shadow-[7px_7px_4px_rgba(0,0,0,0.3)] ">
+    <div className="overflow-hidden h-full w-full card bg-[#E5DEDB] shadow-[7px_7px_4px_rgba(0,0,0,0.3)] ">
       <div className="overflow-hidden min-h-0 card-body flex flex-col items-center justify-between">
         <div className=" grid w-full grid-cols-[1fr_auto_1fr] items-center " >
           <span />
           <h2 className="card-title text-2xl font-bold">{args.title}</h2>
-          <button className="shrink-0 justify-self-end cursor-pointer active:scale-95" onClick={() => handleReduceBtn(args.type)}>
+          <button className={`shrink-0 justify-self-end cursor-pointer active:scale-95 ${showReduceBtn === false && 'hidden'}`} onClick={() => handleReduceBtn(args.type)}>
             <BsBoxArrowInDownLeft size={20} className="[stroke-width:1.5] " />
           </button>
         </div>
@@ -85,7 +85,7 @@ export default function TestimonialsCard(props: any) {
 
         </div>
 
-        <div className="flex flex-row justify-evenly w-full">
+        <div className={`flex flex-row justify-evenly w-full ${showNavBtns === false && 'hidden'}`}>
           <button className="btn bg-[#794B4B] w-[90px] text-white border-none text-[12px] leading-4 rounded-md shadow-[7px_7px_4px_rgba(0,0,0,0.3)]  active:shadow-none active:translate-x-[4px] active:translate-y-[3px]" 
           onClick={() => btnAction(btn1)}
           >

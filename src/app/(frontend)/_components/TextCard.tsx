@@ -7,7 +7,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 export default function TextCard(props: any) {
   console.log(props)
-  let { args, reduceAction, btnAction, cardButtons } = props
+  let { args, reduceAction, btnAction, cardButtons, showNavBtns, showReduceBtn } = props
   let [btn1, btn2] = cardButtons
 
   const containerRef = useRef(null);
@@ -42,14 +42,14 @@ export default function TextCard(props: any) {
           <div className=" grid w-full grid-cols-[1fr_auto_1fr] items-center " >
             <span />
             <h2 className="card-title text-2xl font-bold">{args.title}</h2>
-            <button className="justify-self-end cursor-pointer active:scale-95" onClick={() => handleReduceBtn(args.type)}>
+            <button className={`justify-self-end cursor-pointer active:scale-95 ${showReduceBtn === false && 'hidden'}`} onClick={() => handleReduceBtn(args.type)}>
               <BsBoxArrowInDownLeft size={20} className="[stroke-width:1.5] " />
             </button>
           </div>
           <div ref={containerRef} className="flex-1 text-xl overflow-y-auto">
             <p className="whitespace-pre-line" >{args.text}  </p>
           </div>
-          <div className="flex flex-row justify-evenly w-full">
+          <div className={`flex flex-row justify-evenly w-full ${showNavBtns === false && 'hidden'}`}>
             <button className="btn bg-[#794B4B] w-[90px] text-white border-none text-[12px] leading-4 rounded-md shadow-[7px_7px_4px_rgba(0,0,0,0.3)] active:shadow-none  active:translate-x-[4px] active:translate-y-[3px] "
 
             onClick={() => btnAction(btn1)}
